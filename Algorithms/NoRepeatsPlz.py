@@ -25,6 +25,26 @@ def permAlone(str):
     permute(str, 0, len(str) - 1)
     return counter
 
+# Optimized Solution
+#
+# def permAlone(str):
+#     def permute(chars, start, end):
+#         nonlocal counter
+#         if start == end:
+#             if not any(chars[i] == chars[i + 1] for i in range(end)):
+#                 counter += 1
+#         else:
+#             for i in range(start, end + 1):
+#                 chars[start], chars[i] = chars[i], chars[start]
+#                 if start == 0 or chars[start - 1] != chars[start]:
+#                     permute(chars, start + 1, end)
+#                 chars[start], chars[i] = chars[i], chars[start]  # backtrack
+
+#     chars = list(str)
+#     counter = 0
+#     permute(chars, 0, len(chars) - 1)
+#     return counter
+
 
 print(permAlone('aab'))  # Output: 2
 print(permAlone('aaa'))  # Output: 0
